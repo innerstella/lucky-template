@@ -8,11 +8,13 @@ type Props = {
 const Content = ({ questionNum }: Props) => {
   const [num, setNum] = useState(700);
   const [question, setQuestion] = useState("");
+  const [memo, setMemo] = useState("");
   const [content, setContent] = useState("");
   const [remove, setRemove] = useState(0);
 
   const keyNum = `num-${questionNum}`;
   const keyQuestion = `question-${questionNum}`;
+  const keyMemo = `memo-${questionNum}`;
   const keyContent = `content-${questionNum}`;
 
   // 제한 글자수 수정
@@ -34,10 +36,12 @@ const Content = ({ questionNum }: Props) => {
   useEffect(() => {
     let storageNum = localStorage.getItem(keyNum);
     let storageQuestion = localStorage.getItem(keyQuestion);
+    let storageMemo = localStorage.getItem(keyMemo);
     let storageContent = localStorage.getItem(keyContent);
 
     storageNum && +storageNum && setNum(+storageNum);
     storageQuestion && setQuestion(storageQuestion);
+    storageMemo && setMemo(storageMemo);
     storageContent && setContent(storageContent);
   }, []);
 
@@ -71,6 +75,15 @@ const Content = ({ questionNum }: Props) => {
             setQuestion(e.target.value);
             localStorage.setItem(keyQuestion, e.target.value);
           }}
+        />
+        <textarea
+          className="input-memo"
+          placeholder="메모를 입력하세요"
+          onChange={(e) => {
+            setMemo(e.target.value);
+            localStorage.setItem(keyMemo, e.target.value);
+          }}
+          value={memo}
         />
         <textarea
           className="input-content"
@@ -145,6 +158,20 @@ const ContentContainer = styled.div`
     color: #000;
     font-family: SUIT Variable;
     font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .input-memo {
+    border-radius: 0.625rem;
+    background: #fff2d3;
+    margin-top: 1rem;
+    padding: 1rem;
+    height: 5rem;
+
+    color: #000;
+    font-family: SUIT Variable;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
