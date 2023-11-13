@@ -62,8 +62,8 @@ const Content = ({ questionNum }: Props) => {
           </p>
         </div>
 
-        <input
-          type="text"
+        <textarea
+          // type="text"
           className="input-title"
           placeholder="질문을 입력하세요"
           value={question}
