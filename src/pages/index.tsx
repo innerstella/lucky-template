@@ -24,19 +24,21 @@ const MainPage = () => {
     <MainContainer>
       {/* 로고 */}
       <Logo />
+      {/* 기업명 */}
       <div className="flex-row">
-        {/* 기업명 */}
-        <label className="input-company">🏢</label>
-        <input
-          type="text"
-          className="input-company"
-          placeholder="기업명을 입력하세요"
-          value={company}
-          onChange={(e) => {
-            setCompany(e.target.value);
-            localStorage.setItem("company", e.target.value);
-          }}
-        />
+        <div>
+          <label className="input-company">🏢</label>
+          <input
+            type="text"
+            className="input-company"
+            placeholder="기업명을 입력하세요"
+            value={company}
+            onChange={(e) => {
+              setCompany(e.target.value);
+              localStorage.setItem("company", e.target.value);
+            }}
+          />
+        </div>
         <div className="button" onClick={() => resetContent()}>
           <p className="text">초기화하기</p>
         </div>
@@ -77,6 +79,11 @@ const MainContainer = styled.div`
   .flex-row {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    .space {
+      display: flex;
+      flex-direction: row;
+    }
   }
   .button {
     border-radius: 0.625rem;
