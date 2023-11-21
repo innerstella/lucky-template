@@ -10,7 +10,7 @@
 
 각종 지원서를 더 편리하게 작성할 수 있는 에디터
 
-🔗 https://happybaseball-diary.web.app/
+🔗 https://lucky-template.web.app/
 
 <br/><br/>
 
